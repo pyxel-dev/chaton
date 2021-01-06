@@ -1,5 +1,7 @@
 # Chaton
 
+<a href="https://www.producthunt.com/posts/chaton?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-chaton" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=280204&theme=light" alt="Chaton - 1:1 video chat P2P open source | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
 ![Presentation Chaton](presentation.png)
 
 ## Introduction

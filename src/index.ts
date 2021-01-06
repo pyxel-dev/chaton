@@ -43,6 +43,7 @@ const analytics = firebase.analytics();
  * Call immediately for init the app
 */
 function init() {
+  checkProductHunt();
   // Init button action
   document.querySelector("#create").addEventListener("click", createRoom);
   document.querySelector("#join").addEventListener("click", joinRoom);
@@ -55,10 +56,21 @@ function init() {
 init();
 
 /**
+ * Check if ref=producthunt exist for show badge
+ */
+function checkProductHunt() {
+  const producthuntEl: HTMLAnchorElement = document.querySelector('#producthunt');
+  const url = window.location.search;
+  const urlParams = new URLSearchParams(url);
+  const refValue = urlParams.get('ref');
+  producthuntEl.style.display = refValue === 'producthunt' ? "block" : "none";
+}
+
+/**
  * Create the room
  */
 async function createRoom() {
-  analytics.logEvent('click', { type: 'create_room'});
+  analytics.logEvent('click', { type: 'create_room' });
 
   if (!ready) {
     await setMedia();
@@ -146,7 +158,7 @@ async function createRoom() {
  * Join the room
  */
 async function joinRoom() {
-  analytics.logEvent('click', { type: 'join_room'});
+  analytics.logEvent('click', { type: 'join_room' });
 
   if (!ready) {
     await setMedia();
@@ -248,7 +260,7 @@ async function setMedia() {
  * Quit the room
  */
 async function quit() {
-  analytics.logEvent('click', { type: 'quit_room'});
+  analytics.logEvent('click', { type: 'quit_room' });
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const tracks: MediaStreamTrack[] = (document.querySelector("#localVideo") as HTMLVideoElement).srcObject.getTracks();
@@ -299,7 +311,7 @@ async function quit() {
  * @param roomID
  */
 function copyText(roomID: string) {
-  analytics.logEvent('click', { type: 'copy_room'});
+  analytics.logEvent('click', { type: 'copy_room' });
   const container: HTMLElement = document.body;
   const input: HTMLInputElement = document.createElement("input");
   container.appendChild(input);

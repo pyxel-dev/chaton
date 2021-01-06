@@ -271,3 +271,10 @@ dialog {
   text-indent: -9999px;
   transform: scale(0);
 }
+
+#producthunt {
+  position: absolute;
+  top: calc(66px + 1rem);
+  left: 1rem;
+  z-index: 3;
+}
