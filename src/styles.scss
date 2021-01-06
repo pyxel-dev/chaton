@@ -1,0 +1,273 @@
+@import url("../node_modules/@pyxeldev/reset-css/reset.min.css");
+
+@font-face {
+  font-family: 'chaton';
+  src:
+    url('./fonts/chaton.ttf') format('truetype'),
+    url('./fonts/chaton.woff') format('woff'),
+    url('./fonts/chaton.svg#chaton') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'chaton' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-info:before {
+  content: "\e900";
+}
+.icon-join:before {
+  content: "\e901";
+}
+.icon-input:before {
+  content: "\e904";
+}
+.icon-create:before {
+  content: "\e903";
+}
+.icon-quit:before {
+  content: "\e902";
+}
+.icon-settings:before {
+  content: "\e905";
+}
+.icon-video:before {
+  content: "\e906";
+}
+.icon-audio:before {
+  content: "\e907";
+}
+
+html,
+body {
+  height: 100%;
+}
+
+::selection {
+  color: #222;
+  background-color: #ffe533;
+}
+
+body {
+  background-color: #000000;
+}
+
+.button,
+button,
+input {
+  appearance: none;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+.button,
+button {
+  cursor: pointer;
+}
+
+a.button {
+  background-color: #fff;
+  text-decoration: none;
+  color: #000;
+}
+
+a {
+  color: #4d90fe;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  background-color: #4d90fe;
+  color: #ffffff;
+  height: 66px;
+
+  .infos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    svg {
+      height: 34px;
+      margin-left: 1rem;
+    }
+
+    p,
+    form {
+      align-self: center;
+      margin-left: 1rem;
+
+      &#createdRoomID {
+        display: none;
+      }
+
+      &#joinedRoomID {
+        display: none;
+      }
+    }
+
+    #roomID {
+      background-color: #ffe533;
+      color: darken(#ffe533, 30%);
+      padding: .5rem .75rem;
+      border-radius: 4px;
+      border: thin solid darken(#ffe533, 30%);
+      width: 210px;
+      cursor: pointer;
+    }
+  }
+
+  .actions {
+    display: flex;
+
+    button {
+      &:not(:first-of-type) {
+        margin-left: 1rem;
+      }
+    }
+  }
+}
+
+.videos {
+  position: relative;
+  height: calc(100% - 66px);
+  overflow: hidden;
+
+  #localVideo,
+  #remoteVideo {
+    position: absolute;
+  }
+
+  #localVideo {
+    width: 200px;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 2;
+  }
+
+  #remoteVideo {
+    width: auto;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    z-index: 1;
+  }
+}
+
+dialog {
+  position: absolute;
+  top: 66px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: white;
+  border-radius: 8px;
+
+  &#modal-about {
+    display: none;
+    max-width: 640px;
+    width: 90%;
+  }
+
+  #close-modal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 2rem auto 1rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1rem auto;
+
+    div {
+      width: calc(100% / 3);
+      display: flex;
+      flex-direction: column;
+
+      &:nth-of-type(2) {
+        padding: 0 .5rem;
+      }
+
+      label {
+        margin-bottom: .5rem;
+      }
+
+      input {
+        border: thin solid grey;
+      }
+    }
+
+    input[type="submit"] {
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+  }
+
+  i {
+    font-size: .75rem;
+  }
+
+  footer {
+    text-align: right;
+    font-style: italic;
+    margin-top: 2rem;
+    font-size: .75rem;
+  }
+}
+
+#tooltip {
+  display: none;
+  position: absolute;
+  top: calc(66px + 1rem);
+  right: 1rem;
+  z-index: 3;
+  padding: .5rem .75rem;
+  border-radius: 4px;
+  background-color: #90b32d;
+  color: darken(#90b32d, 30%);
+  border: thin solid darken(#90b32d, 30%);
+}
+
+.input-none {
+  position: absolute;
+  z-index: -9999;
+  text-indent: -9999px;
+  transform: scale(0);
+}
