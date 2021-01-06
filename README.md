@@ -1,7 +1,9 @@
 # Chaton
 
 ## Introduction
-Chaton is a simple 1:1 video chat, full open source. This project is fully operational in production.
+Chaton is a simple 1:1 video chat, full open source. You can create a room and share the ID with an another person for chat together.
+
+It's built with WebRTC technology, for a peer-to-peer exchange, without registration.
 
 ## Features
 - Written without frameworks, **full Vanilla Typescript**
